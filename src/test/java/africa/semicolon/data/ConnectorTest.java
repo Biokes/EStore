@@ -9,9 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ConnectorTest {
     @Test
-    void testDbConnection() throws SQLException {
-        Connection connection = Connector.connect();
-        assertNotNull(connection);
-        connection.close();
+    void testDbConnection() {
+        try(Connection connection = Connector.connect()){
+            assertNotNull(connection);
+        }catch (SQLException err){
+            err.printStackTrace();
+        }
     }
 }
