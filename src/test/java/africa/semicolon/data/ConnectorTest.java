@@ -14,6 +14,7 @@ public class ConnectorTest {
             assertNotNull(connection);
         }catch (SQLException err){
             err.printStackTrace();
+
         }
     }
 }

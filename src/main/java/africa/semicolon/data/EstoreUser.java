@@ -5,25 +5,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
-@Table(name="User")
-public class User {
+@Table(name="EStoreUser")
+public class EstoreUser {
     @Id
     @GeneratedValue
-    private String id;
+    private long id;
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public static void main(String[] args) {
-    }
 }
+
 

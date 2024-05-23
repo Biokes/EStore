@@ -17,7 +17,8 @@ public class UserRepositoryTest {
     }
     @Test
     void createAndSaveUser_testUserIsSaved(){
-        User user = new User();
+        EstoreUser user = new EstoreUser();
+        user.setId(1);
         repository.save(user);
         assertEquals(1,repository.count());
     }
