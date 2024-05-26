@@ -1,4 +1,4 @@
-package africa.semicolon;
+package africa.semicolon.data;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -7,7 +7,7 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 
-class Main2 {
+class LambdasAndStream {
     private static double getPositiveRatio(List<Integer> arr){
         return arr.stream().filter(numbers->numbers>0)
                 .flatMapToDouble(DoubleStream::of)
