@@ -6,6 +6,8 @@ import africa.semicolon.data.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static africa.semicolon.utils.Validator.validateUser;
+
 @Service
 public class EstoreUserService implements UserService{
     @Autowired
@@ -14,6 +16,7 @@ public class EstoreUserService implements UserService{
         repo.deleteAll();
     }
     public void saveUser(EstoreUser user) {
+        validateUser(user);
         repo.save(user);
     }
     @Override
