@@ -14,7 +14,7 @@ public class EstoreUserService implements UserService{
         repo.deleteAll();
     }
     public void saveUser(EstoreUser user) {
-
+        repo.save(user);
     }
     @Override
     public long countUsers() {
