@@ -21,16 +21,26 @@ public class UserServicesTest {
     @Test
     void createUser_testUserIsCreated(){
         EstoreUser user = new EstoreUser();
+        user.setUsername("abbey");
+        user.setPassword("Password123,");
+        user.setEmail("email@gmail.com");
         userService.saveUser(user);
         assertEquals(1, userService.countUsers());
         user = new EstoreUser();
+        user.setUsername("abbey");
+        user.setPassword("Password1234,");
+        user.setEmail("email@gmail.com");
         userService.saveUser(user);
         assertEquals(2,userService.countUsers());
     }
     @Test
-    void testUserFieldsCAnnotBeNull(){
-      EstoreUser user = new EstoreUser();
-      assertThrows(EstoreUserException.class,()->userService.saveUser(user));
-
+    void testUserFieldsCanNeitherBeNullNorBlank(){
+        EstoreUser user = new EstoreUser();
+        assertThrows(EstoreUserException.class,()->userService.saveUser(user));
+        user.setUsername("abbey");
+        user.setPassword("Password123,");
+        user.setEmail("email@gmail.com ");
+        userService.saveUser(user);
+        assertEquals(1,userService.countUsers());
     }
 }
