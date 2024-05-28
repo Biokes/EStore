@@ -26,6 +26,5 @@ public class Validator {
         validate(user.getUsername());
         validatePassword(user.getPassword());
         validateEmail(user.getEmail());
-
     }
 }

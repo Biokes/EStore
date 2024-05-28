@@ -39,7 +39,7 @@ public class UserServicesTest {
         assertThrows(EstoreUserException.class,()->userService.saveUser(user));
         user.setUsername("abbey");
         user.setPassword("Password123,");
-        user.setEmail("email@gmail.com ");
+        user.setEmail("email10129@gmail.com ");
         userService.saveUser(user);
         assertEquals(1,userService.countUsers());
     }
