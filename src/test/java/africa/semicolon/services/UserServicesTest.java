@@ -1,6 +1,7 @@
 package africa.semicolon.services;
 
 import africa.semicolon.data.model.EstoreUser;
+import africa.semicolon.dto.RegisterRequest;
 import africa.semicolon.exceptions.EstoreUserException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,13 +21,13 @@ public class UserServicesTest {
     }
     @Test
     void createUser_testUserIsCreated(){
-        EstoreUser user = new EstoreUser();
+        RegisterRequest user = new RegisterRequest();
         user.setUsername("abbey");
         user.setPassword("Password123,");
         user.setEmail("email@gmail.com");
         userService.saveUser(user);
         assertEquals(1, userService.countUsers());
-        user = new EstoreUser();
+        user = new RegisterRequest();
         user.setUsername("abbey");
         user.setPassword("Password1234,");
         user.setEmail("email@gmail.com");
@@ -35,12 +36,18 @@ public class UserServicesTest {
     }
     @Test
     void testUserFieldsCanNeitherBeNullNorBlank(){
-        EstoreUser user = new EstoreUser();
+        RegisterRequest user = new RegisterRequest();
         assertThrows(EstoreUserException.class,()->userService.saveUser(user));
         user.setUsername("abbey");
         user.setPassword("Password123,");
         user.setEmail("email10129@gmail.com ");
         userService.saveUser(user);
         assertEquals(1,userService.countUsers());
+    }
+    @Test
+    void testUserCannotRegisterTwice(){
+        RegisterRequest request= new RegisterRequest();
+        request.setUsername("username");
+        request.setPassword("MyPassword");
     }
 }

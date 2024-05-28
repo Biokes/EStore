@@ -1,4 +1,4 @@
-package africa.semicolon.utils;
+package africa.semicolon.exceptions;
 
 public enum ErrorMessages {
     INVALID_EMAIL("Invalid email provided."),
