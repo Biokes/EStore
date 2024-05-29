@@ -1,6 +1,5 @@
 package africa.semicolon.services;
 
-import africa.semicolon.data.model.EstoreUser;
 import africa.semicolon.dto.RegisterRequest;
 import africa.semicolon.exceptions.EstoreUserException;
 import org.junit.jupiter.api.BeforeEach;
